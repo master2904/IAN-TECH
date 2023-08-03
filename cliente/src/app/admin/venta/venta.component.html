@@ -1,0 +1,45 @@
+<div class="row">
+  <br>
+  <h3 style="text-align: center; font-size: 30px; width: 100%;"><strong>Venta</strong></h3>
+  <div class="col-1"></div>
+  <div class="col-10">
+    <hr>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-danger" (click)="combo_1()">Combo Computadora</button>
+      <button type="button" class="btn btn-outline-danger" (click)="combo_2()">Camara</button>
+      <button type="button" class="btn btn-outline-danger" (click)="venta()">Venta Simple</button>
+    </div>
+    <hr>
+    <app-combopc></app-combopc>
+        <!-- <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Codigo</th>
+                <th>Imagen</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Opcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cat of elegidos;let i=index">
+                <td>{{cat.codigo}}</td>
+                <td><img src="{{llenar_imagen(cat.imagen)}}" alt="Foto" height="50px"></td>
+                <td class="asd">{{tipo(cat.id_detalle)}} {{cat.detalle}}</td>
+                <td>{{cat.precio_venta}}</td>                
+                <td>
+                    <button style="border: 0; text-align: center;font-size: 10px;" (click)="eliminar(i)">
+                        <mat-icon style="color: red;">cancel</mat-icon>
+                      </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td>{{total}}</td>
+              </tr>
+            </tbody>
+          </table> -->
+    </div>
+</div>    

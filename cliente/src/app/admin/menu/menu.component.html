@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+          <mat-nav-list class="side-navnar" style="font-size: 20px; text-align: center;">
+            <br>
+            <p>IAN TECH</p>
+            <p>Tecnlogia al alcance de tus manos</p>
+            <img src={{imagen()}} alt="Foto" width="70px" style="border-radius: 50%;">
+              <br>
+            <p style="font-size: 12px;">{{getrol()}}  </p>
+            <!-- <mat-expansion-panel> -->
+              <a class="menu1" mat-list-item routerLink="/admin/home"> <mat-icon>home</mat-icon>Inicio</a>
+              <a class="menu1" mat-list-item routerLink="/admin/perfil"> <mat-icon>account_circle</mat-icon>Perfil</a>
+              <a class="menu1" mat-list-item routerLink="/admin/usuario"> <mat-icon>person</mat-icon>Usuarios</a>
+              <!-- <mat-expansion-panel-header> -->
+              <!-- </mat-expansion-panel-header>
+            </mat-expansion-panel> -->
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+              <mat-expansion-panel-header>
+                  <mat-icon>dashboard</mat-icon>Negocio
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                <a class="menu1" mat-list-item routerLink="/admin/categoria"> <mat-icon class="icono">business</mat-icon>Tipos</a>
+                <a class="menu1" mat-list-item routerLink="/admin/producto"> <mat-icon>devices_other</mat-icon>Productos</a>
+                <a class="menu1" mat-list-item routerLink="/admin/producto"> <mat-icon>markunread_mailbox</mat-icon>Inventario</a>
+              </mat-nav-list>
+          </mat-expansion-panel>
+          </mat-nav-list>
+          <!-- <br> -->
+          <mat-nav-list class="side-navnar">
+            
+            <a class="menu1" mat-list-item routerLink="/admin/cliente"> <mat-icon class="icono">people</mat-icon>Clientes</a>
+            <a class="menu1" mat-list-item routerLink="/admin/venta"> <mat-icon class="icono">attach_money</mat-icon>Ventas</a>
+            <a class="menu1" mat-list-item (click)="cerrar_sesion()"> <mat-icon>exit_to_app</mat-icon>Cerrar Sesion</a>
+          </mat-nav-list>    
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>Menu</span>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

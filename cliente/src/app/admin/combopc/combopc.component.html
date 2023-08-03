@@ -1,0 +1,124 @@
+<!-- <h4 class="texto"><strong >PC</strong></h4> -->
+<div [formGroup]="agregar" class="example-container">
+    <div class="row">
+        <div class="col-3">
+            <mat-form-field appearance="fill">
+                <mat-label>NIT/CI</mat-label>
+                <input matInput placeholder="NIT/CI" formControlName="nit">
+                <!-- <mat-error *ngIf="nombre.invalid">{{getErrorMessage()}}</mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" formControlName="nombre">
+                <!-- <mat-error *ngIf="nombre.invalid">{{getErrorMessage()}}</mat-error> -->
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Procesador</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[1]" (click)="push(item,0)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[0]}} Bs. </span>
+    </p>
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Placa Madre</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[2]" (click)="push(item,1)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[1]}} Bs. </span>
+    </p>
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Memoria Ram</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[3]" (click)="push(item,2)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[2]}} Bs. </span>
+    </p>
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Targeta de Video</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[4]" (click)="push(item,3)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[3]}} Bs. </span>
+    </p>
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Disco Duro HHD</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[5]" (click)="push(item,4)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[4]}} Bs. </span>
+    </p>
+</div>  
+<div class="col-6">
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Disco Duro SSD</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[6]" (click)="push(item,5)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[5]}} Bs. </span>
+    </p>
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Case</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[7]" (click)="push(item,6)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[6]}} Bs. </span>
+    </p>
+    <p>
+    <mat-form-field appearance="fill">
+        <mat-label>Monitor</mat-label>
+        <mat-select>
+            <mat-option value={{item.id}} *ngFor="let item of productos[8]" (click)="push(item,7)">{{item.detalle}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="badge badge-success precio" >  {{precios[7]}} Bs. </span>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Fuente de Energia</mat-label>
+            <mat-select>
+                <mat-option value={{item.id}} *ngFor="let item of productos[9]" (click)="push(item,8)">{{item.detalle}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <span class="badge badge-success precio" >  {{precios[8]}} Bs. </span>
+    </p>
+    <!-- <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Otro</mat-label>
+            <mat-select>
+                <mat-option value={{item.id}} *ngFor="let item of otros" (click)="push(item,i)">{{item.detalle}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <span class="badge badge-success precio" >  {{precios[9]}} Bs. </span>
+    </p> -->
+<table class="table">
+    <tr>
+        <td>Total</td>
+        <td>
+            <span class="badge badge-success precio" style="text-align: right;" >  {{total}} Bs. </span>
+        </td>
+    </tr>
+</table>
+
+    </div>
+</div>
+</div>

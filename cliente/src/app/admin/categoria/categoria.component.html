@@ -1,0 +1,54 @@
+<br>
+<h4>TIPOS DE PRODUCTOS</h4>  
+<br>
+<!-- <div class="row">
+  <div class="col-lg-8 offset-2">
+    <input type="search" class="form-control" placeholder="Buscar" name="filterPost"  [(ngModel)]="filterpost"  maxlength="20">
+  </div>
+</div> -->
+<!-- <br>   -->
+<div class="btn-group" role="group" aria-label="button group">
+  <button class="btn btn-outline-primary" (click)="agregar()" > <mat-icon>add</mat-icon> Nuevo Tipo</button>
+</div>
+  <div class="row" style="text-align: center;">
+      <div class="col-xl-8 col-lg-8 col-sm-8 offset-2">
+        <br>
+        <hr>
+        <div>
+            <table class="table table-sm">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th style="text-align: left;">Descripcion</th>
+                  <th>Tipo</th>
+                  <th>Opcion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cat of detalles;let i=index">
+                  <td>{{i+1}}</td>
+                  <td style="text-align: left;">{{cat.descripcion}}</td>
+                  <td>{{cat.tipo}}</td>
+                  <td><div class="btn-group" role="group" >
+                    <!-- <button (click)="eliminar(cat.id)" class="btn btn-danger btn-sm">
+                      <mat-icon>delete</mat-icon>
+                    </button>    
+                    <button type="button" class="btn btn-success btn-sm" (click)="editar(cat)">
+							        <mat-icon>edit</mat-icon>                      
+                    </button> -->
+
+                    <button class="icono" (click)="editar(cat)">
+                      <mat-icon style="color: green;">edit</mat-icon>
+                    </button>
+                    <button class="icono" (click)="eliminar(cat.id)">
+                      <mat-icon style="color: red;">delete</mat-icon>
+                    </button>
+
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>      
+      </div>
+      </div>
