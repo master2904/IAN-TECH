@@ -139,6 +139,7 @@ import { CombopcComponent } from './combopc/combopc.component';
     ButtonModule,
     MatExpansionModule,
     MatTableModule,
+    MaterialFileInputModule
     // BrowserAnimationsModule
 ],
   exports:[
