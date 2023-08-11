@@ -131,5 +131,4 @@ export class CrearProductoComponent implements OnInit {
     this.detalles=this.data['v']
     // console.log(this.data)
   }
-
 }

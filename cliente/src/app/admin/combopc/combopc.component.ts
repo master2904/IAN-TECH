@@ -88,19 +88,12 @@ export class CombopcComponent implements OnInit {
     .afterClosed()
     .subscribe((confirmado: Boolean) => {
       if (confirmado) {
-        // this.laboratorios.push(this.laboratorios_elegidos[pos]);
-        // this.n-= this.m_disponibles[pos];
-        // this.m_disponibles.splice(pos,1);
         this.total-=this.elegidos[pos].precio_venta
         this.elegidos.splice(pos,1);
-        // this.labos.splice(pos,1);
-        // this.contador--;
-        // this.k--;
         this.toastr.warning('Item Removido')
       }
       else
         this.toastr.info('Operacion Cancelada');
     }); 
   }
-
 }

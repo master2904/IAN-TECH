@@ -75,6 +75,8 @@ import { CrearProductoComponent } from './producto/crear-producto/crear-producto
 import { EditarProductoComponent } from './producto/editar-producto/editar-producto.component';
 import { VentaComponent } from './venta/venta.component';
 import { CombopcComponent } from './combopc/combopc.component';
+import { ComboCamaraComponent } from './combo-camara/combo-camara.component';
+import { SimpleComponent } from './simple/simple.component';
 
 // import { NgxChartModule } from 'ngx-chart';
 
@@ -113,7 +115,7 @@ import { CombopcComponent } from './combopc/combopc.component';
     EditarProblemaComponent, 
     RegistrarSolucionComponent, 
     VerLaboratorioComponent, 
-    FilterConcursoPipe, ImportarComponent, ColegioComponent, CrearColegioComponent, EditarColegioComponent, FilterColegioPipe, HabilitarComponent, RegistrarEquipoComponent, VerMaquinaComponent, AutoComponent, ReporteComponent, GanadoresComponent, ProductoComponent, CrearProductoComponent, EditarProductoComponent, VentaComponent, CombopcComponent
+    FilterConcursoPipe, ImportarComponent, ColegioComponent, CrearColegioComponent, EditarColegioComponent, FilterColegioPipe, HabilitarComponent, RegistrarEquipoComponent, VerMaquinaComponent, AutoComponent, ReporteComponent, GanadoresComponent, ProductoComponent, CrearProductoComponent, EditarProductoComponent, VentaComponent, CombopcComponent, ComboCamaraComponent, SimpleComponent
   ],
   imports: [
     CommonModule,

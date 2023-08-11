@@ -15,21 +15,25 @@ import { environment } from 'src/environments/environment.prod';
 export class VentaComponent implements OnInit {
   constructor(private producto:ProductoService,private detalle:CategoriaService,private toastr: ToastrService,private dialog:MatDialog,private dialogo:MatDialog) { 
   }
-  ngOnInit():void{}
-  combo_1(){
-    // this.comp=true
-    // this.cam=false
-    // this.normal=false
+  ngOnInit():void{
   }
-  combo_2(){
-    // this.comp=false
-    // this.cam=true
-    // this.normal=false
+  combo1=false;
+  combo2=false;
+  combo3=false;
+  pc(){
+    this.combo1=true;
+    this.combo2=false;
+    this.combo3=false;
   }
-  venta(){
-    // this.comp=false
-    // this.cam=false
-    // this.normal=true
+  camara(){
+    this.combo1=false;
+    this.combo2=true;
+    this.combo3=false;
+  }
+  simple(){
+    this.combo1=false;
+    this.combo2=false;
+    this.combo3=true;
   }
 
-  }
+}
