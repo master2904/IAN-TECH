@@ -18,7 +18,6 @@ export class CrearProductoComponent implements OnInit {
   nombre=null;
   createFormGroup(){
     return new FormGroup({
-      // id: new FormControl('',[Validators.required]),
       codigo: new FormControl('',[Validators.required]),
       detalle: new FormControl('',[Validators.required]),
       precio_compra: new FormControl('',[Validators.required,Validators.min(1)]),
@@ -44,7 +43,7 @@ export class CrearProductoComponent implements OnInit {
   get f(){
     return this.agregar.controls;
   }
-  cargarArchivo(event){
+  cargarImagen(event){
     this.file=<File>event.target.files[0]
     const ext=this.file.name.split('.')[1];
     let fecha=new Date();  
@@ -66,7 +65,8 @@ export class CrearProductoComponent implements OnInit {
     this.agregar=this.createFormGroup();
   }
   nuevo(){
-    // this.enviarArchivo();
+    this.enviarArchivo();
+    console.log(this.agregar)
     // this.agregar.controls['img'].setValue(this.nombre);
   }
   cancelar() {

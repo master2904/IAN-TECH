@@ -35,14 +35,14 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Tipo</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="id_detalle">
                             <mat-option value={{item.id}} *ngFor="let item of detalles" >{{item.descripcion}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="id_detalle.invalid">{{error_id_detalle()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Imagen</mat-label>
-                        <ngx-mat-file-input formControlName="imagen" placeholder="Imagen" accept="image/jpeg,image/jpg"></ngx-mat-file-input>
+                        <ngx-mat-file-input formControlName="imagen" placeholder="Imagen" accept="image/jpeg,image/jpg" (change)="cargarImagen($event)"></ngx-mat-file-input>
                         <mat-icon matSuffix>image</mat-icon>
                         <mat-error *ngIf="imagen.invalid">{{error_imagen()}}</mat-error>
                      </mat-form-field>

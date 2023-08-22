@@ -23,14 +23,8 @@ export class UsuarioComponent implements OnInit {
   usuarios =[]; 
   base=environment.base+'usuario/imagen/';
   llenar_imagen(img){    
-    // return this.base+img;
     let iu;
     return this.base+img;
-    this.usuario.cargar(img).subscribe((data:any)=>{
-      iu=data;
-      console.log(data);
-    });
-    return iu;
   }
   abrirDialogo() {
     let data: Formulario;
@@ -59,8 +53,6 @@ export class UsuarioComponent implements OnInit {
     let sw=0;
     formulario=new Formulario(0,form.nombre,form.apellido,form.username,form.rol,form.img,form.email,form.password);
     this.usuarios.forEach(user => {
-      // console.log(user);
-
       if(user.username==formulario.username){
         this.toastr.error('Esta cuenta ya existe','Error');
         sw=1;
@@ -88,18 +80,17 @@ export class UsuarioComponent implements OnInit {
         return "";
     }
   }
-      constructor(private usuario:UsuarioService, private route:Router,private toastr: ToastrService,private dialog:MatDialog,public dialogo: MatDialog) {
-      }
-      ngOnInit(): void {
-        this.usuario.listar().subscribe((data:any)=>{
-          // console.log(data);
-          this.usuarios=data;
-          // this.settear();
-      });
-    }
+  constructor(private usuario:UsuarioService, private route:Router,private toastr: ToastrService,private dialog:MatDialog,public dialogo: MatDialog) {
+  }
+  ngOnInit(): void {
+    this.usuario.listar().subscribe((data:any)=>{
+      // console.log(data);
+      this.usuarios=data;
+      // this.settear();
+    });
+  }
     nombre_i=null;
     file:File=null;
-
     remove(id): void {
       this.dialogo.open(DialogoComponent, {
         data: `¿Desea Eliminar este Usuario?`

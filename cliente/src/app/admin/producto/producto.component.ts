@@ -73,6 +73,7 @@ export class ProductoComponent implements OnInit {
           this.toastr.info('Operacion Cancelda');
       }
       );
+      
     }
       // let data: Producto;
       // const dialogo1 = this.dialog.open(CrearProductoComponent, {data});
