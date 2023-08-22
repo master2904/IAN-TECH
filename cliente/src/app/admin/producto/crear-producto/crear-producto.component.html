@@ -5,41 +5,41 @@
             <form [formGroup]="agregar">
                 <mat-form-field appearance="fill">
                     <mat-label>Codigo</mat-label>
-                    <input matInput formControlName="codigo" type="text" placeholder="Codigo" name="codigo" maxlength="6">
+                    <input matInput formControlName="codigo" type="text" placeholder="A1" name="codigo" maxlength="2">
                     <mat-error *ngIf="codigo.invalid">{{error_codigo()}}</mat-error>
                 </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Detalle</mat-label>
-                        <input matInput formControlName="detalle" type="text" placeholder="Detalle" name="detalle" maxlength="60" minlength="3">
+                        <input matInput formControlName="detalle" type="text" placeholder="Sendero de la vida" name="detalle" maxlength="40" minlength="5">
                         <mat-error *ngIf="detalle.invalid">{{error_detalle()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Precio Compra</mat-label>
-                        <input matInput formControlName="precio_compra" type="number" name="precio_compra" minlength="5" maxlength="20" placeholder="Precio Tienda">
-                        <mat-error *ngIf="precio_compra.invalid">{{error_precio_compra()}}</mat-error>
+                        <mat-label>Marca</mat-label>
+                        <input matInput formControlName="marca" type="text" name="marca" minlength="5" maxlength="20">
+                        <mat-error *ngIf="marca.invalid">{{error_marca()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Precio Tienda</mat-label>
-                        <input matInput formControlName="precio_tienda" type="number" name="precio_venta" minlength="5" maxlength="20" placeholder="Precio Final">
-                        <mat-error *ngIf="precio_tienda.invalid">{{error_precio_final()}}</mat-error>
+                        <input matInput formControlName="precio_compra" type="number" name="precio_compra" minlength="5" maxlength="20">
+                        <mat-error *ngIf="precio_compra.invalid">{{error_marca()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Precio Final</mat-label>
-                        <input matInput formControlName="precio_final" type="number" name="precio_venta" minlength="5" maxlength="20" placeholder="Precio Final">
-                        <mat-error *ngIf="precio_final.invalid">{{error_precio_final()}}</mat-error>
+                        <input matInput formControlName="precio_venta" type="number" name="precio_venta" minlength="5" maxlength="20">
+                        <mat-error *ngIf="precio_venta.invalid">{{error_marca()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Cantidad</mat-label>
-                        <input matInput formControlName="cantidad" type="number" name="cantidad" minlength="5" maxlength="20" placeholder="Cantidad">
-                        <mat-error *ngIf="cantidad.invalid">{{error_cantidad()}}</mat-error>
+                        <input matInput formControlName="cantidad" type="number" name="cantidad" minlength="5" maxlength="20">
+                        <mat-error *ngIf="cantidad.invalid">{{error_marca()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Tipo</mat-label>
                         <mat-select formControlName="id_detalle">
                             <mat-option value={{item.id}} *ngFor="let item of detalles" >{{item.descripcion}}</mat-option>
                         </mat-select>
-                        <mat-error *ngIf="id_detalle.invalid">{{error_id_detalle()}}</mat-error>
                     </mat-form-field>
+<<<<<<< HEAD
                     <mat-form-field appearance="fill">
                         <mat-label>Imagen</mat-label>
                         <ngx-mat-file-input formControlName="imagen" placeholder="Imagen" accept="image/jpeg,image/jpg" (change)="cargarImagen($event)"></ngx-mat-file-input>
@@ -47,6 +47,10 @@
                         <mat-error *ngIf="imagen.invalid">{{error_imagen()}}</mat-error>
                      </mat-form-field>
                 </form>
+=======
+            
+            </form>
+>>>>>>> c02702d1b0090c749dd8720a5ed219c610187062
         </div>
     </div>
     <div mat-dialog-actions>

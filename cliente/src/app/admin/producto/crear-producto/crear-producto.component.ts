@@ -18,14 +18,19 @@ export class CrearProductoComponent implements OnInit {
   nombre=null;
   createFormGroup(){
     return new FormGroup({
+<<<<<<< HEAD
+=======
+      id: new FormControl('',[Validators.required]),
+>>>>>>> c02702d1b0090c749dd8720a5ed219c610187062
       codigo: new FormControl('',[Validators.required]),
       detalle: new FormControl('',[Validators.required]),
-      precio_compra: new FormControl('',[Validators.required,Validators.min(1)]),
-      precio_tienda: new FormControl('',[Validators.required,Validators.min(1)]),
-      precio_final: new FormControl('',[Validators.required,Validators.min(1)]),
+      marca: new FormControl('',[Validators.required]),
+      precio_compra: new FormControl('',[Validators.required]),
+      precio_venta: new FormControl('',[Validators.required]),
       cantidad: new FormControl('',[Validators.required]),
       id_detalle: new FormControl('',[Validators.required]),
-      imagen: new FormControl('',[Validators.required])
+      relacion: new FormControl('',[Validators.required]),
+      imagen: new FormControl('',[Validators.required]),
     });
   }
   agregar:FormGroup;
@@ -34,8 +39,7 @@ export class CrearProductoComponent implements OnInit {
   get detalle(){return this.agregar.get('detalle');}
   get marca(){return this.agregar.get('marca');}
   get precio_compra(){return this.agregar.get('precio_compra');}
-  get precio_tienda(){return this.agregar.get('precio_tienda');}
-  get precio_final(){return this.agregar.get('precio_final');}
+  get precio_venta(){return this.agregar.get('precio_venta');}
   get cantidad(){return this.agregar.get('cantidad');}
   get id_detalle(){return this.agregar.get('id_detalle');}
   get relacion(){return this.agregar.get('relacion');}
@@ -81,16 +85,6 @@ export class CrearProductoComponent implements OnInit {
     if(this.detalle.hasError('pattern'))
       return 'Ingrese Mayusculas';
   }
-  error_id_detalle() {
-    if (this.id_detalle.hasError('required')) {
-      return 'Este campo es obligatorio';
-    }
-  }
-  error_imagen() {
-    if (this.imagen.hasError('required')) {
-      return 'Este campo es obligatorio';
-    }
-  }
   error_codigo() {
     if (this.codigo.hasError('required')) {
       return 'Este campo es obligatorio';
@@ -98,37 +92,17 @@ export class CrearProductoComponent implements OnInit {
     if(this.codigo.hasError('pattern'))
       return 'Solo se aceptan letras y numeros';
   }
-  error_cantidad() {
+  error_marca() {
     if (this.cantidad.hasError('required')) {
       return 'Este campo es obligatorio';
     }
     if(this.cantidad.hasError('pattern'))
       return 'Solo se aceptan letras';
   }
-  error_precio_compra() {
-    if (this.precio_compra.hasError('required')) {
-      return 'Este campo es obligatorio';
-    }
-    if(this.precio_compra.hasError('min'))
-      return 'No se aceptan cantidades negativas';
-  }
-  error_precio_tienda() {
-    if (this.precio_tienda.hasError('required')) {
-      return 'Este campo es obligatorio';
-    }
-    if(this.precio_tienda.hasError('min'))
-      return 'No se aceptan cantidades negativas';
-  }
-  error_precio_final() {
-    if (this.precio_final.hasError('required')) {
-      return 'Este campo es obligatorio';
-    }
-    if(this.precio_final.hasError('min'))
-      return 'No se aceptan cantidades negativas';
-  }
   detalles=[]
   ngOnInit(): void {
     this.detalles=this.data['v']
     // console.log(this.data)
   }
+
 }
