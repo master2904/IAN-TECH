@@ -12,6 +12,7 @@ import { Formulario } from './formulario';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { DialogoComponent } from 'src/app/dialogo/dialogo.component';
+import { Usuario } from 'src/app/model/usuario';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -55,19 +56,24 @@ export class UsuarioComponent implements OnInit {
   }
   nuevo(datos){
     let form=datos;
-    let formulario:Formulario;
+    let formulario:Usuario={id:0,apellido:'',nombre:'',celular:'',imagen:'',password:'',username:'',rol:0};
     let sw=0;
-    formulario=new Formulario(0,form.nombre,form.apellido,form.username,form.rol,form.img,form.email,form.password);
+    formulario.id=0;
+    formulario.apellido=form.apellido
+    formulario.nombre=form.nombre
+    formulario.username=form.username
+    formulario.rol=form.rol
+    formulario.imagen=form.img
+    formulario.password=form.password
+    formulario.celular=form.celular
+    // =new Formulario(0,form.nombre,form.apellido,form.username,form.rol,form.img,form.email,form.password);
     this.usuarios.forEach(user => {
-      // console.log(user);
-
       if(user.username==formulario.username){
         this.toastr.error('Esta cuenta ya existe','Error');
         sw=1;
       }
     });
     if(sw==0){
-      // console.log(sw);
       this.usuario.nuevo(formulario).subscribe((data:any)=>{
         this.usuarios=data;
         this.toastr.success("Usuario Creado",'Exito!');
@@ -81,9 +87,9 @@ export class UsuarioComponent implements OnInit {
       case 1:
         return "Administrador";
       case 2:
-        return "Logística";
+        return "Inventario";
       case 3:
-        return "Staff";
+        return "Tienda";
       default:
         return "";
     }
@@ -124,8 +130,16 @@ export class UsuarioComponent implements OnInit {
     }
     update(datos) {
       let form=datos;
-      let formulario:Formulario;
-      formulario=new Formulario(form.id,form.nombre,form.apellido,form.username,form.rol,form.img,form.email,form.password);
+      let formulario:Usuario={id:0,apellido:'',nombre:'',celular:'',imagen:'',password:'',username:'',rol:0};
+      let sw=0;
+      formulario.id=form.id;
+      formulario.apellido=form.apellido
+      formulario.nombre=form.nombre
+      formulario.username=form.username
+      formulario.rol=form.rol
+      formulario.imagen=form.img
+      formulario.password=form.password
+      formulario.celular=form.celular
       console.log(formulario)
       this.usuario.update(formulario.id,formulario).subscribe((data:any) => {
         this.toastr.success("Usuario Actualizado",'Exito!');

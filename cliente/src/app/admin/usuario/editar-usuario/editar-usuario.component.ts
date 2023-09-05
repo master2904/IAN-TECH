@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Formulario } from '../formulario';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -22,7 +23,7 @@ export class EditarUsuarioComponent implements OnInit {
       rol: new FormControl('',[Validators.required]),
       img: new FormControl(''),
       imagen: new FormControl('',[]),
-      email: new FormControl('',[Validators.required,Validators.email]),
+      celular: new FormControl('',[Validators.required]),
       password: new FormControl('',),
       created_at:new FormControl(''),
       updated_at:new FormControl('')
@@ -34,15 +35,15 @@ export class EditarUsuarioComponent implements OnInit {
   get username(){return this.formulario.get('username'); }
   get imagen(){return this.formulario.get('imagen'); }
   get rol(){return this.formulario.get('rol'); }
-  get email(){return this.formulario.get('email'); }
+  get celular(){return this.formulario.get('celular'); }
   get password(){return this.formulario.get('password'); }
   constructor(  public dialogRef: MatDialogRef<EditarUsuarioComponent>,
-    @ Inject(MAT_DIALOG_DATA) public data: Formulario,private usuario:UsuarioService,){
+    @ Inject(MAT_DIALOG_DATA) public data: Usuario,private usuario:UsuarioService,){
     this.formulario=this.createFormGroup();
     this.formulario.controls['id'].setValue(data.id);
     this.formulario.controls['nombre'].setValue(data.nombre);
     this.formulario.controls['apellido'].setValue(data.apellido);
-    this.formulario.controls['email'].setValue(data.email);
+    this.formulario.controls['celular'].setValue(data.celular);
     this.formulario.controls['username'].setValue(data.username);
     this.formulario.controls['rol'].setValue(data.rol);
     this.formulario.controls['imagen'].setValue("");
@@ -114,11 +115,11 @@ export class EditarUsuarioComponent implements OnInit {
     }
     return "";
   }
-  error_email() {
-    if (this.email.hasError('required')) {
+  error_celular() {
+    if (this.celular.hasError('required')) {
       return 'Este campo es obligatorio';
     }
-    if(this.email.hasError('email'))
+    if(this.celular.hasError('celular'))
       return 'Ingrese un correo valido';
   }
   error_password() {

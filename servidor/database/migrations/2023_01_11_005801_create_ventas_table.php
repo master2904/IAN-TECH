@@ -16,11 +16,10 @@ class CreateVentasTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->integer('id_usuario');
-            $table->integer('id_producto');
             $table->integer('id_cliente');
-            $table->integer('cantidad');
-            $table->float('precio');
             $table->date('fecha');
+            $table->float('total');
+            $table->float('monto');
             $table->timestamps();
         });
     }

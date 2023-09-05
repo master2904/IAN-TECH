@@ -1,0 +1,2 @@
+export interface Equipo {
+}

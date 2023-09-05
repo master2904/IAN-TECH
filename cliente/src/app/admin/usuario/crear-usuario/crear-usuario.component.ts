@@ -26,7 +26,7 @@ export class CrearUsuarioComponent implements OnInit {
       rol: new FormControl('',[Validators.required]),
       imagen: new FormControl('',[Validators.required]),
       img: new FormControl(''),
-      email: new FormControl('',[Validators.required,Validators.email]),
+      celular: new FormControl('',[Validators.required]),
       password: new FormControl('',[Validators.required,Validators.minLength(8)]),
       created_at:new FormControl(''),
       updated_at:new FormControl('')
@@ -37,10 +37,10 @@ export class CrearUsuarioComponent implements OnInit {
   get username(){return this.agregar.get('username'); }
   get rol(){return this.agregar.get('rol'); }
   get imagen(){return this.agregar.get('imagen'); }
-  get email(){return this.agregar.get('email'); }
+  get celular(){return this.agregar.get('celular'); }
   get password(){return this.agregar.get('password'); }
   settear(){
-    this.agregar.reset({nombre:'',apellido:'',username:'',imagen:'',rol:'',email:'',password:''});
+    this.agregar.reset({nombre:'',apellido:'',username:'',imagen:'',rol:'',celular:'',password:''});
   }
   get f(){
     return this.agregar.controls;
@@ -112,11 +112,11 @@ export class CrearUsuarioComponent implements OnInit {
     }
     return "";
   }
-  error_email() {
-    if (this.email.hasError('required')) {
+  error_celular() {
+    if (this.celular.hasError('required')) {
       return 'Este campo es obligatorio';
     }
-    if(this.email.hasError('email'))
+    if(this.celular.hasError('celular'))
       return 'Ingrese un correo valido';
   }
   error_password() {

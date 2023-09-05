@@ -1,0 +1,49 @@
+<br>
+<h4><strong>CLIENTES</strong></h4>  
+<br>
+<!-- <div class="row">
+  <div class="col-lg-8 offset-2">
+    <input type="search" class="form-control" placeholder="Buscar" name="filterPost"  [(ngModel)]="filterpost"  maxlength="20">
+  </div>
+</div> -->
+<!-- <br>   -->
+<div class="btn-group" role="group" aria-label="button group">
+  <button class="btn btn-outline-primary" (click)="agregar()" > <mat-icon>add</mat-icon> Nuevo Cliente</button>
+</div>
+  <div class="row" style="width: 100%;">
+    <div class="col-2"></div>
+      <div class="col-xl-8 col-lg-8 col-sm-8">
+        <br>
+        <hr>
+        <div>
+            <table class="table table-sm">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th style="text-align: left;">Nit/Ci</th>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Opcion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of clientes;let i=index">
+                  <td>{{i+1}}</td>
+                  <td style="text-align: left;">{{c.nit}}</td>
+                  <td>{{c.nombre}}</td>
+                  <td>{{tipo(c.tipo)}}</td>
+                  <td><div class="btn-group" role="group" >
+                    <button class="icono" (click)="editar(c)">
+                      <mat-icon style="color: green;">edit</mat-icon>
+                    </button>
+                    <button class="icono" (click)="eliminar(c.id)">
+                      <mat-icon style="color: red;">delete</mat-icon>
+                    </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>      
+      </div>
+      </div>

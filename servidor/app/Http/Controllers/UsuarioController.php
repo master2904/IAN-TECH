@@ -58,7 +58,6 @@ class UsuarioController extends Controller
             'rol' => 'required',
             'imagen'=>'required',
             'username' => 'required|string|max:25',
-            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             ]);
         // $lista=User::where('username',$request->input('username'))->get();
@@ -71,7 +70,7 @@ class UsuarioController extends Controller
             'username' => $request->get('username'),
             'rol' => $request->get('rol'),
             'imagen' => $request->get('imagen'),
-            'email' => $request->get('email'),
+            'celular' => $request->get('celular'),
             'password' => Hash::make($request->get('password')),
         ]);
         return $this->index();

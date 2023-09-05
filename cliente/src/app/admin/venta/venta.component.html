@@ -1,17 +1,36 @@
+<hr>
 <div class="row">
-  <br>
   <h3 style="text-align: center; font-size: 30px; width: 100%;"><strong>Venta</strong></h3>
   <div class="col-1"></div>
   <div class="col-10">
-    <hr>
+    <div [formGroup]="agregar" class="example-container">
+      <mat-form-field class="example-full-width">
+        <mat-label>NIT/CI</mat-label>
+        <input type="text" placeholder="NIT/CI" aria-label="Number" matInput #cliente_id [formControl]="nit" [matAutocomplete]="auto" (input)="nuevo_nit($event.target.value);">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filtroCliente | async" [value]="option.nit" (click)="setear_cliente(option)">
+            {{option.nit}} {{option.nombre}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error >{{error_nit()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" type="text" placeholder="Nombre" name="nombre" maxlength="30" minlength="3">
+         <!-- (input)="nuevo_nombre($event.target.value)"> -->
+      </mat-form-field>
+    </div>
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-outline-danger" (click)="pc()">Combo Computadora</button>
-      <button type="button" class="btn btn-outline-danger" (click)="camara()">Camara</button>
-      <button type="button" class="btn btn-outline-danger" (click)="simple()">Venta Simple</button>
+      <button type="button" class="btn btn-outline-danger" *ngIf="venta>0" (click)="tipo=1">Combo Computadora</button>
+      <button type="button" class="btn btn-outline-danger" *ngIf="venta>0" (click)="tipo=2">Camara</button>
+      <button type="button" class="btn btn-outline-danger" *ngIf="venta>0" (click)="tipo=3">Venta Simple</button>
     </div>
     <hr>
-    <app-combopc *ngIf="combo1"></app-combopc>
-    <app-combo-camara *ngIf="combo2"></app-combo-camara>
-    <app-simple *ngIf="combo3"></app-simple>
+    <app-combo-pc-tienda *ngIf="venta==1 && tipo==1"></app-combo-pc-tienda>
+    <app-combo-pc-normal *ngIf="venta==2 && tipo==1"></app-combo-pc-normal>
+    <app-combo-camara-tienda *ngIf="venta==1 && tipo==2"></app-combo-camara-tienda>
+    <app-combo-camara-normal *ngIf="venta==2 && tipo==2"></app-combo-camara-normal>
+    <app-tienda *ngIf="venta==1 && tipo==3"></app-tienda>
+    <app-normal *ngIf="venta==2 && tipo==3"></app-normal>
     </div>
 </div>    

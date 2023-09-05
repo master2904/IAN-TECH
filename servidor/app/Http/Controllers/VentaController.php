@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\User;
+use App\Models\Equipo;
+use App\Models\Cliente;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -48,4 +52,25 @@ class VentaController extends Controller
         $lista->delete();
         return $this->listar($valor);
     }    
+    public function fecha($request){
+        $listado=Venta::where('fecha',$request)->get();
+        $i=0;
+        $historial=[];
+        $transacciones=[];
+        while(isset($listado[$i])){
+            $ans=$listado[$i];
+            $listado[$i]->id_usuario=User::find($ans->id_usuario)->username;
+            $listado[$i]->id_cliente=Cliente::find($ans->id_cliente)->nombre;
+            $historial[$i]=Equipo::where('id_venta',$ans->id)->get();
+            $c=0;
+            while(isset($historial[$i][$c])){
+                $res=$historial[$i][$c];
+                $historial[$i][$c]->id_producto=Product::find($res->id_producto)->detalle;
+                // return response()->json(array($res));
+                $c=$c+1;
+            }            
+            $i=$i+1;
+        }
+        return response()->json(array($listado,$historial));
+    }
 }

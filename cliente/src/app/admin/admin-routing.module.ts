@@ -20,6 +20,8 @@ import { ReporteComponent } from './reporte/reporte.component';
 import { GanadoresComponent } from './ganadores/ganadores.component';
 import { ProductoComponent } from './producto/producto.component';
 import { VentaComponent } from './venta/venta.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   {
@@ -28,10 +30,10 @@ const routes: Routes = [
     component:AdminComponent,
     children:[
       {path:'producto',component:ProductoComponent},
-      {path:'habilitar',component:HabilitarComponent},
+      {path:'cliente',component:ClienteComponent},
       {path:'home',component:HomeComponent},
       {path:'categoria',component: CategoriaComponent},
-      {path:'concurso',component: ConcursoComponent},
+      {path:'historial',component: HistorialComponent},
       {path:'colegio',component: ColegioComponent},
       {path:'equipo',component: EquipoComponent},
       {path:'laboratorio',component: LaboratorioComponent},

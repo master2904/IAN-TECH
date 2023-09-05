@@ -77,7 +77,18 @@ import { VentaComponent } from './venta/venta.component';
 import { CombopcComponent } from './combopc/combopc.component';
 import { ComboCamaraComponent } from './combo-camara/combo-camara.component';
 import { SimpleComponent } from './simple/simple.component';
-
+import { ClienteComponent } from './cliente/cliente.component';
+import { CrearClienteComponent } from './cliente/crear-cliente/crear-cliente.component';
+import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.component';
+import { ComboPcNormalComponent } from './venta/combo-pc-normal/combo-pc-normal.component';
+import { ComboPcTiendaComponent } from './venta/combo-pc-tienda/combo-pc-tienda.component';
+import { ComboCamaraNormalComponent } from './venta/combo-camara-normal/combo-camara-normal.component';
+import { ComboCamaraTiendaComponent } from './venta/combo-camara-tienda/combo-camara-tienda.component';
+import { NormalComponent } from './venta/normal/normal.component';
+import { TiendaComponent } from './venta/tienda/tienda.component';
+import { HistorialComponent } from './historial/historial.component';
+import { VerComponent } from './historial/ver/ver.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 // import { NgxChartModule } from 'ngx-chart';
 
 @NgModule({
@@ -115,7 +126,7 @@ import { SimpleComponent } from './simple/simple.component';
     EditarProblemaComponent, 
     RegistrarSolucionComponent, 
     VerLaboratorioComponent, 
-    FilterConcursoPipe, ImportarComponent, ColegioComponent, CrearColegioComponent, EditarColegioComponent, FilterColegioPipe, HabilitarComponent, RegistrarEquipoComponent, VerMaquinaComponent, AutoComponent, ReporteComponent, GanadoresComponent, ProductoComponent, CrearProductoComponent, EditarProductoComponent, VentaComponent, CombopcComponent, ComboCamaraComponent, SimpleComponent
+    FilterConcursoPipe, ImportarComponent, ColegioComponent, CrearColegioComponent, EditarColegioComponent, FilterColegioPipe, HabilitarComponent, RegistrarEquipoComponent, VerMaquinaComponent, AutoComponent, ReporteComponent, GanadoresComponent, ProductoComponent, CrearProductoComponent, EditarProductoComponent, VentaComponent, CombopcComponent, ComboCamaraComponent, SimpleComponent, ClienteComponent, CrearClienteComponent, EditarClienteComponent, ComboPcNormalComponent, ComboPcTiendaComponent, ComboCamaraNormalComponent, ComboCamaraTiendaComponent, NormalComponent, TiendaComponent, HistorialComponent, VerComponent
   ],
   imports: [
     CommonModule,
@@ -141,7 +152,8 @@ import { SimpleComponent } from './simple/simple.component';
     ButtonModule,
     MatExpansionModule,
     MatTableModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    MatAutocompleteModule
     // BrowserAnimationsModule
 ],
   exports:[

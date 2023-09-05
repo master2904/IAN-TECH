@@ -11,6 +11,6 @@ class Cliente extends Model
     protected $fillable = [
         'nit',
         'nombre',
-        'apellido'
+        'tipo'
     ];
 }

@@ -26,7 +26,9 @@ export class CrearProductoComponent implements OnInit {
       precio_final: new FormControl('',[Validators.required,Validators.min(1)]),
       cantidad: new FormControl('',[Validators.required]),
       id_detalle: new FormControl('',[Validators.required]),
-      imagen: new FormControl('',[Validators.required])
+      imagen: new FormControl('',[Validators.required]),
+      marca:new FormControl('',Validators.required),
+      img:new FormControl()
     });
   }
   agregar:FormGroup;
@@ -41,18 +43,19 @@ export class CrearProductoComponent implements OnInit {
   get id_detalle(){return this.agregar.get('id_detalle');}
   get relacion(){return this.agregar.get('relacion');}
   get imagen(){return this.agregar.get('imagen');}
+  get img(){return this.agregar.get('img');}
   get f(){
     return this.agregar.controls;
   }
-  cargarArchivo(event){
+  cargarImagen(event){
     this.file=<File>event.target.files[0]
     const ext=this.file.name.split('.')[1];
     let fecha=new Date();  
     this.nombre=""+fecha.getFullYear()+(fecha.getMonth()+1)+(fecha.getDay()+1)+fecha.getHours()+fecha.getMinutes()+fecha.getSeconds();
     this.nombre=this.nombre+"."+ext;
-    console.log(this.nombre);
+    // console.log(this.nombre);
   }
-  enviarArchivo(){
+  enviarImagen(){
     this.producto.onUpload(this.file,this.nombre).subscribe(data=>{
       console.log(data);
     },
@@ -66,8 +69,8 @@ export class CrearProductoComponent implements OnInit {
     this.agregar=this.createFormGroup();
   }
   nuevo(){
-    // this.enviarArchivo();
-    // this.agregar.controls['img'].setValue(this.nombre);
+    this.enviarImagen();
+    this.agregar.controls['img'].setValue(this.nombre);
   }
   cancelar() {
     this.dialogRef.close();
@@ -83,6 +86,11 @@ export class CrearProductoComponent implements OnInit {
   }
   error_id_detalle() {
     if (this.id_detalle.hasError('required')) {
+      return 'Este campo es obligatorio';
+    }
+  }
+  error_marca() {
+    if (this.marca.hasError('required')) {
       return 'Este campo es obligatorio';
     }
   }

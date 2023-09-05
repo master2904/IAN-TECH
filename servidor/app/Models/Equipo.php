@@ -10,11 +10,10 @@ class Equipo extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre',
-        'id_colegio',
-        'cuenta',
-        'clave',
-        'id_categoria',
-        'posicion'
+        'id_venta',
+        'id_producto',
+        'cantidad',
+        'precio',
+        'total',
     ];   
 }

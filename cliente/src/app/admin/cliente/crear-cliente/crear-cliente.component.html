@@ -1,0 +1,37 @@
+<div>
+    <h4 style="text-align: center; font-size: 20px;" mat-dialog-title><strong>Nuevo Cliente</strong></h4>
+    <div mat-dialog-content>
+        <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 700px; padding: 1rem;">
+            <form [formGroup]="agregar">
+                <p>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Nit/Ci</mat-label>
+                        <input matInput formControlName="nit" type="text" placeholder="NIT/CI" name="nit" maxlength="15">
+                        <mat-error *ngIf="nit.invalid">{{error_nit()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre" type="text" name="nombre">
+                        <mat-error *ngIf="nombre.invalid">{{error_nombre()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tipo</mat-label>
+                        <mat-select matNativeConttipo formControlName="tipo">
+                            <mat-option value="1">Cliente Tienda</mat-option>
+                            <mat-option value="2" selected>Cliente Normal</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="tipo.invalid">{{error_tipo()}}</mat-error>
+                    </mat-form-field>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="cancelar()" class="btn btn-secondary">Cancelar</button>
+        <button mat-button [mat-dialog-close]="agregar" class="btn btn-danger" [disabled]="agregar.invalid">Agregar</button>
+    </div>
+</div>

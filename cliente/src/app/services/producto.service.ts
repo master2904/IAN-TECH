@@ -23,11 +23,11 @@ export class ProductoService {
     return this.http.get(`${this.base}producto/`+id);
   }
   nuevo(form){
-    console.log(form);
+    // console.log(form);
     return this.http.post(`${this.base}producto`,form);
   }
   eliminar(id){
-    console.log(id);
+    // console.log(id);
     return this.http.delete(`${this.base}producto/`+id);
   }
   update(id,form) {

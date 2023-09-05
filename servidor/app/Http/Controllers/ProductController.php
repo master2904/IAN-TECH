@@ -31,19 +31,15 @@ class ProductController extends Controller
             $product[$i]=Product::where('id_detalle',$i)->orderBy("codigo","asc")->get();
             $i=$i+1;
         }
-        return response()->json($product,200);
+        return $this->index();
     }
 
     public function store(Request $request)
     {
         // return response()->json($request["lugar"]);
-        $lugar=$request['lugar'];
-        $request->validate([
-            'nombre' => 'required',
-            'imagen' => 'required',
-        ]);
+        // $lugar=$request['lugar'];
         Product::create($request->all());
-        return $this->listado($lugar);
+        return $this->index();
     }
 
     public function show($id)
@@ -53,19 +49,21 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $producto=Product::find($id);
-        $lugar=$request['lugar'];
+        $input=$request->all();
         if (!$producto) 
             return response()->json("Este Producto no existe",400);
-        $producto->update($request->all());
-        return $this->listado($lugar);
+        if($input['imagen']!="")
+            $producto['imagen']=$input['imagen'];
+        // $producto->update($request->all());
+        $producto->save();
+        return $this->index();
     }
 
     public function destroy($id)
     {
         $p=Product::find($id);
-        $lugar=$p['lugar'];
         $p->delete();
-        return $this->listado($lugar);
+        return $this->index();
     }
     public function imageUpload(Request $request){
         $request->validate([

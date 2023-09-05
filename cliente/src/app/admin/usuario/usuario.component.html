@@ -29,18 +29,18 @@
 					<div class="card-text"style="text-align:left;">
 						<strong>Nombre: </strong>{{u.apellido}} {{u.nombre}}<br>
 						<strong>Rol: </strong>{{role(u.rol)}}<br>
-						<!-- <strong>Email: </strong>{{u.email}}<br> -->
+						<strong>Celular: </strong>{{u.celular}}<br>
 						<strong>Cuenta: </strong>{{u.username}}
 					</div>
 					<hr>
 					<div class="card-text"style="text-align:right">
 						<div class="btn-group" role="group" >
-							<button href="" (click)="remove(u.id)" class="btn btn-danger btn-sm">
-								<mat-icon>delete</mat-icon>
-							</button>    
 							<button type="button" class="btn btn-success btn-sm"  (click)="	actualizar(u)">
 								<mat-icon >edit</mat-icon>
 							</button>
+							<button href="" (click)="remove(u.id)" class="btn btn-danger btn-sm">
+								<mat-icon>delete</mat-icon>
+							</button>    
 						</div>
 					</div>
 					</div>
