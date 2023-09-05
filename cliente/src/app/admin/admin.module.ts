@@ -75,6 +75,7 @@ import { CrearProductoComponent } from './producto/crear-producto/crear-producto
 import { EditarProductoComponent } from './producto/editar-producto/editar-producto.component';
 import { VentaComponent } from './venta/venta.component';
 import { CombopcComponent } from './combopc/combopc.component';
+<<<<<<< HEAD
 import { ComboCamaraComponent } from './combo-camara/combo-camara.component';
 import { SimpleComponent } from './simple/simple.component';
 import { ClienteComponent } from './cliente/cliente.component';
@@ -89,6 +90,9 @@ import { TiendaComponent } from './venta/tienda/tienda.component';
 import { HistorialComponent } from './historial/historial.component';
 import { VerComponent } from './historial/ver/ver.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+=======
+
+>>>>>>> main
 // import { NgxChartModule } from 'ngx-chart';
 
 @NgModule({
@@ -126,7 +130,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     EditarProblemaComponent, 
     RegistrarSolucionComponent, 
     VerLaboratorioComponent, 
+<<<<<<< HEAD
     FilterConcursoPipe, ImportarComponent, ColegioComponent, CrearColegioComponent, EditarColegioComponent, FilterColegioPipe, HabilitarComponent, RegistrarEquipoComponent, VerMaquinaComponent, AutoComponent, ReporteComponent, GanadoresComponent, ProductoComponent, CrearProductoComponent, EditarProductoComponent, VentaComponent, CombopcComponent, ComboCamaraComponent, SimpleComponent, ClienteComponent, CrearClienteComponent, EditarClienteComponent, ComboPcNormalComponent, ComboPcTiendaComponent, ComboCamaraNormalComponent, ComboCamaraTiendaComponent, NormalComponent, TiendaComponent, HistorialComponent, VerComponent
+=======
+    FilterConcursoPipe, ImportarComponent, ColegioComponent, CrearColegioComponent, EditarColegioComponent, FilterColegioPipe, HabilitarComponent, RegistrarEquipoComponent, VerMaquinaComponent, AutoComponent, ReporteComponent, GanadoresComponent, ProductoComponent, CrearProductoComponent, EditarProductoComponent, VentaComponent, CombopcComponent
+>>>>>>> main
   ],
   imports: [
     CommonModule,
@@ -152,8 +160,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     ButtonModule,
     MatExpansionModule,
     MatTableModule,
+<<<<<<< HEAD
     MaterialFileInputModule,
     MatAutocompleteModule
+=======
+>>>>>>> main
     // BrowserAnimationsModule
 ],
   exports:[

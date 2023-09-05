@@ -50,6 +50,7 @@ export class VentaComponent implements OnInit {
       })
     })
   }
+<<<<<<< HEAD
   ngOnInit():void{
     this.agregar=this.createFormGroup()
     this.cargar()
@@ -72,3 +73,23 @@ export class VentaComponent implements OnInit {
   venta=0
   tipo=0
 }
+=======
+  ngOnInit():void{}
+  combo_1(){
+    // this.comp=true
+    // this.cam=false
+    // this.normal=false
+  }
+  combo_2(){
+    // this.comp=false
+    // this.cam=true
+    // this.normal=false
+  }
+  venta(){
+    // this.comp=false
+    // this.cam=false
+    // this.normal=true
+  }
+
+  }
+>>>>>>> main

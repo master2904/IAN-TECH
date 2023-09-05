@@ -87,9 +87,7 @@ class DatabaseSeeder extends Seeder
 			'precio_compra'=>'800',
 			'precio_venta'=>'900',
 			'cantidad'=>'5',
-			'imagen'=>'asd',
-			'id_detalle'=>'1',
-			'relacion'=>'0',
+			'id_detalle'=>'1'
 		));
 		Product::create(array(
 			'codigo'=>'002',
@@ -98,9 +96,7 @@ class DatabaseSeeder extends Seeder
 			'precio_compra'=>'700',
 			'precio_venta'=>'750',
 			'cantidad'=>'5',
-			'imagen'=>'asd',
-			'id_detalle'=>'1',
-			'relacion'=>'0',
+			'id_detalle'=>'1'
 		));		
     }
 }

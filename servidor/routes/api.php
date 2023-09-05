@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\LaboratorioController;
 use App\Http\Controllers\MaquinaController;
 use Illuminate\Http\Request;
@@ -12,7 +13,11 @@ use App\Http\Controllers\ProblemaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\TipoController;
+<<<<<<< HEAD
 use App\Http\Controllers\VentaController;
+=======
+
+>>>>>>> main
 Route::apiResource('/cliente', 'App\Http\Controllers\ClienteController');
 Route::apiResource('/detalle', 'App\Http\Controllers\DetalleController');
 Route::apiResource('/producto', 'App\Http\Controllers\ProductController');
@@ -60,6 +65,7 @@ Route::post('/laboratorio/imagen', [LaboratorioController::class,'imageUpload'])
 Route::post('/usuario/imagen', [UsuarioController::class,'imageUpload']);
 Route::post('/producto/imagen', [ProductController::class,'imageUpload']);
 Route::get('/producto/detalle/{id}', [ProductController::class,'listado']);
+
 Route::get('/usuario/descargar/{master}',[UsuarioController::class,'image']);
 Route::post('/login', [UsuarioController::class,'authenticate']);
 // Route::get("usuario/imagen/{nombre}",[UsuarioController::class,'descargar']);

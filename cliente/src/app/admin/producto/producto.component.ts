@@ -62,6 +62,7 @@ export class ProductoComponent implements OnInit {
   }
   
   agregar(){
+<<<<<<< HEAD
     const dialogConfig = new MatDialogConfig();
     let datos:Producto
     dialogConfig.data={datos,v:this.detalles};
@@ -73,6 +74,22 @@ export class ProductoComponent implements OnInit {
         this.nuevo(art.value);
       else
         this.toastr.info('Operacion Cancelda');
+=======
+      const dialogConfig = new MatDialogConfig();
+      let datos:Producto
+      dialogConfig.data={datos,v:this.detalles};
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      const dialogo1 = this.dialog.open(CrearProductoComponent, dialogConfig);
+      dialogo1.afterClosed().subscribe(art => {
+        if (art != undefined)
+          this.nuevo(art.value);
+        else
+          this.toastr.info('Operacion Cancelda');
+      }
+      );
+      
+>>>>>>> main
     }
     );
   }

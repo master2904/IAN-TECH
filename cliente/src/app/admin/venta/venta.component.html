@@ -21,6 +21,7 @@
       </mat-form-field>
     </div>
     <div class="btn-group" role="group">
+<<<<<<< HEAD
       <button type="button" class="btn btn-outline-danger" *ngIf="venta>0" (click)="tipo=1">Combo Computadora</button>
       <button type="button" class="btn btn-outline-danger" *ngIf="venta>0" (click)="tipo=2">Camara</button>
       <button type="button" class="btn btn-outline-danger" *ngIf="venta>0" (click)="tipo=3">Venta Simple</button>
@@ -32,5 +33,45 @@
     <app-combo-camara-normal *ngIf="venta==2 && tipo==2"></app-combo-camara-normal>
     <app-tienda *ngIf="venta==1 && tipo==3"></app-tienda>
     <app-normal *ngIf="venta==2 && tipo==3"></app-normal>
+=======
+      <button type="button" class="btn btn-outline-danger" (click)="combo_1()">Combo Computadora</button>
+      <button type="button" class="btn btn-outline-danger" (click)="combo_2()">Camara</button>
+      <button type="button" class="btn btn-outline-danger" (click)="venta()">Venta Simple</button>
+    </div>
+    <hr>
+    <app-combopc></app-combopc>
+        
+
+        <!-- <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Codigo</th>
+                <th>Imagen</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Opcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cat of elegidos;let i=index">
+                <td>{{cat.codigo}}</td>
+                <td><img src="{{llenar_imagen(cat.imagen)}}" alt="Foto" height="50px"></td>
+                <td class="asd">{{tipo(cat.id_detalle)}} {{cat.detalle}}</td>
+                <td>{{cat.precio_venta}}</td>                
+                <td>
+                    <button style="border: 0; text-align: center;font-size: 10px;" (click)="eliminar(i)">
+                        <mat-icon style="color: red;">cancel</mat-icon>
+                      </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td>{{total}}</td>
+              </tr>
+            </tbody>
+          </table> -->
+>>>>>>> main
     </div>
 </div>    
