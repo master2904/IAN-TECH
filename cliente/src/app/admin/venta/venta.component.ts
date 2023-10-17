@@ -26,7 +26,7 @@ export class VentaComponent implements OnInit {
     return new FormGroup({
       id:new FormControl(''),
       nombre:new FormControl('',[Validators.required,Validators.minLength(3)]),//, Validators.pattern(this.letras)]),
-      nit:new FormControl('',[Validators.required,Validators.minLength(3)]),
+      nit:new FormControl('',[Validators.required]),
     })}
   agregar:FormGroup;
   get nombre(){return this.agregar.get('nombre'); }
@@ -57,13 +57,15 @@ export class VentaComponent implements OnInit {
   }
   nuevo_nit(e){
     this.agregar.controls['nit'].setValue(e)
-    console.log(e)
+    // console.log(e)
   }
   setear_cliente(s){
     // console.log(s)
     this.agregar.controls['nombre'].setValue(s.nombre);
     this.agregar.controls['nit'].setValue(s.nit);
     localStorage.setItem('c',s.id);
+    localStorage.setItem('x',s.nit);
+    localStorage.setItem('y',s.nombre);
     this.venta=s.tipo
   }
   error_nit(){
@@ -72,5 +74,10 @@ export class VentaComponent implements OnInit {
   }
   venta=0
   tipo=0
+  nuevo_cliente(){
+    console.log(this.nit.value)
+    console.log(this.nombre.value)
+    this.venta=2;
+  }
 }
   

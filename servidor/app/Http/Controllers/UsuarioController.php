@@ -126,11 +126,11 @@ class UsuarioController extends Controller
     public function update( $id,Request $request){
         $equipo=User::find($id);
         $input=$request->all();
-        
         $equipo['nombre']=$request->get('nombre');
         $equipo['apellido']=$request->get('apellido');
         $equipo['username']=$request->get('username');
         $equipo['rol']=$request->get('rol');
+        $equipo['celular']=$request->get('celular');
         // $equipo['email']=$request->get('email');
         if($input['imagen']!="")
             $equipo['imagen']=$input['imagen'];

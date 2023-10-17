@@ -22,6 +22,7 @@ import { ProductoComponent } from './producto/producto.component';
 import { VentaComponent } from './venta/venta.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { HistorialComponent } from './historial/historial.component';
+import { GraficoComponent } from './grafico/grafico.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
       {path:'usuario',component: UsuarioComponent},
       {path:'perfil',component: PerfilComponent},
       {path:'script',component: ScriptComponent},
-      {path:'score',component: ScoreComponent},
+      {path:'grafico',component: GraficoComponent},
       {path:'importar',component: ImportarComponent},
       {path:'auto',component: AutoComponent},
       {path:'reporte',component: ReporteComponent},

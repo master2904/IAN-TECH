@@ -13,11 +13,7 @@ use App\Http\Controllers\ProblemaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\TipoController;
-<<<<<<< HEAD
 use App\Http\Controllers\VentaController;
-=======
-
->>>>>>> main
 Route::apiResource('/cliente', 'App\Http\Controllers\ClienteController');
 Route::apiResource('/detalle', 'App\Http\Controllers\DetalleController');
 Route::apiResource('/producto', 'App\Http\Controllers\ProductController');
@@ -31,6 +27,7 @@ Route::apiResource('/maquina', 'App\Http\Controllers\MaquinaController');
 Route::apiResource('/problema', 'App\Http\Controllers\ProblemaController');
 Route::get('/producto/lista/{id}', [ProductController::class,'listado']);
 Route::get('/producto/pc/{id}', [ProductController::class,'pc']);
+Route::get('/producto/camara/{id}', [ProductController::class,'camara']);
 Route::get('/producto/otros/{id}', [ProductController::class,'otros']);
 Route::get('/tipo/lista/{id}', [TipoController::class,'listar']);
 Route::post('/detalle/delete', [DetalleController::class,'delete']);
@@ -60,12 +57,12 @@ Route::get('/equipo/categoria/{id}', [EquipoController::class,'listar_concurso_c
 Route::get('/equipo/score/{id}', [EquipoController::class,'score']);
 Route::put('/equipo/finalizar/{id}', [EquipoController::class,'finalizar']);
 Route::get('/equipo/colegio/{id}', [EquipoController::class,'colegio']);
-Route::post('/equipo/lista', [EquipoController::class,'importar']);
+Route::post('/producto/lista', [ProductController::class,'importar']);
 Route::post('/laboratorio/imagen', [LaboratorioController::class,'imageUpload']);
 Route::post('/usuario/imagen', [UsuarioController::class,'imageUpload']);
 Route::post('/producto/imagen', [ProductController::class,'imageUpload']);
 Route::get('/producto/detalle/{id}', [ProductController::class,'listado']);
-
+Route::get("venta/meses/{id}",[VentaController::class,'r_meses']);
 Route::get('/usuario/descargar/{master}',[UsuarioController::class,'image']);
 Route::post('/login', [UsuarioController::class,'authenticate']);
 // Route::get("usuario/imagen/{nombre}",[UsuarioController::class,'descargar']);

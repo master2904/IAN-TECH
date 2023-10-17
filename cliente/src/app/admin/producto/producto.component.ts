@@ -62,7 +62,6 @@ export class ProductoComponent implements OnInit {
   }
   
   agregar(){
-<<<<<<< HEAD
     const dialogConfig = new MatDialogConfig();
     let datos:Producto
     dialogConfig.data={datos,v:this.detalles};
@@ -74,23 +73,7 @@ export class ProductoComponent implements OnInit {
         this.nuevo(art.value);
       else
         this.toastr.info('Operacion Cancelda');
-=======
-      const dialogConfig = new MatDialogConfig();
-      let datos:Producto
-      dialogConfig.data={datos,v:this.detalles};
-      dialogConfig.disableClose = true;
-      dialogConfig.autoFocus = true;
-      const dialogo1 = this.dialog.open(CrearProductoComponent, dialogConfig);
-      dialogo1.afterClosed().subscribe(art => {
-        if (art != undefined)
-          this.nuevo(art.value);
-        else
-          this.toastr.info('Operacion Cancelda');
       }
-      );
-      
->>>>>>> main
-    }
     );
   }
   editar(f:Producto) {
@@ -118,7 +101,7 @@ export class ProductoComponent implements OnInit {
         if(id>1){
           this.producto.eliminar(id).subscribe((data:any)=>{
             // console.log(data);
-            this.dataSource=data;
+            this.productos=data;
             this.toastr.success('Producto Eliminado','')
           });
         }
@@ -131,7 +114,7 @@ export class ProductoComponent implements OnInit {
     });
   }
   update(f) {
-    console.log(f)
+    // console.log(f)
     let formulario:Producto={id:0,codigo:0,detalle:'',marca:'',precio_compra:0,precio_final:0,precio_tienda:0,cantidad:0,id_detalle:0,relacion:0,imagen:''}
     formulario.id=f.id;
     formulario.codigo=f.codigo;
@@ -147,7 +130,7 @@ export class ProductoComponent implements OnInit {
     console.log(formulario)
     this.producto.update(formulario.id,formulario).subscribe((data:any) => {
       this.toastr.success("Producto Actualizado",'Exito!');
-      this.dataSource=data;
+      this.productos=data;
     },
     error=>{
         this.toastr.error("No se pudo actualizar",'Error!');
@@ -170,7 +153,7 @@ export class ProductoComponent implements OnInit {
     formulario.imagen=f.img;
     console.log(formulario)
     this.producto.nuevo(formulario).subscribe((data:any)=>{
-      this.dataSource=data;
+      this.productos=data;
       this.toastr.success("Producto agregado exitosamente","Exito")
     },
     error=>{

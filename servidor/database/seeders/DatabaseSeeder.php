@@ -39,9 +39,13 @@ class DatabaseSeeder extends Seeder
 			'nombre' => 'Grover',
 			'apellido' => 'Chambi Gamata',
 			'username' => 'grover',
-			'imagen'=>'202337215252.jpg',
+			'imagen'=>'202392143029.jpeg',
 			'celular'=>'123123',
 			'password' => Hash::make('grover123456')
+		));
+		Detalle::create(array(
+			'descripcion'=>'Mano de Obra',
+        	'tipo'=>'0',
 		));
 		Detalle::create(array(
 			'descripcion'=>'Procesador',
@@ -79,24 +83,49 @@ class DatabaseSeeder extends Seeder
 			'descripcion'=>'Fuente de Energia',
         	'tipo'=>'9',
 		));
-		
-		Product::create(array(
-			'codigo'=>'001',
-			'detalle'=>'core i5 11va',
-			'marca'=>'Intel',
-			'precio_compra'=>'800',
-			'precio_venta'=>'900',
-			'cantidad'=>'5',
-			'id_detalle'=>'1'
+		Detalle::create(array(
+			'descripcion'=>'Gravador',
+        	'tipo'=>'10',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Disco Duro',
+        	'tipo'=>'11',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Balum Video',
+        	'tipo'=>'12',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Plug Energia',
+        	'tipo'=>'13',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Fuente',
+        	'tipo'=>'14',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Cajas',
+        	'tipo'=>'15',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Cable de Red',
+        	'tipo'=>'16',
+		));
+		Detalle::create(array(
+			'descripcion'=>'Monitor',
+        	'tipo'=>'17',
 		));
 		Product::create(array(
-			'codigo'=>'002',
-			'detalle'=>'Ryzen 5',
-			'marca'=>'AMD',
-			'precio_compra'=>'700',
-			'precio_venta'=>'750',
-			'cantidad'=>'5',
-			'id_detalle'=>'1'
-		));		
+			'codigo'=>'000',
+			'detalle'=>'Mano de Obra',
+			'marca'=>'',
+			'precio_compra'=>'0',
+			'precio_tienda'=>'20',
+			'precio_final'=>'20',
+			'cantidad'=>'1',
+			'imagen'=>'',
+			'id_detalle'=>'0',
+			'relacion'=>'0'
+		));
     }
 }

@@ -22,7 +22,7 @@ export class EditarProductoComponent implements OnInit {
       precio_final: new FormControl('',[Validators.required,Validators.min(1)]),
       cantidad: new FormControl('',[Validators.required]),
       id_detalle: new FormControl('',[Validators.required]),
-      imagen: new FormControl('',[Validators.required]),
+      imagen: new FormControl('',[]),
       marca:new FormControl('',Validators.required),
       relacion:new FormControl(),
       img:new FormControl()
@@ -82,9 +82,16 @@ export class EditarProductoComponent implements OnInit {
     this.agregar.controls['img'].setValue("");
   }
   nuevo(){
-    this.enviarImagen();
-    this.agregar.controls['img'].setValue(this.nombre);
+    if(this.imagen.value!=""){
+      this.enviarImagen();
+      this.agregar.controls['img'].setValue(this.nombre);
+    }
   }
+  // nuevo(){
+
+  //   this.enviarImagen();
+  //   this.agregar.controls['img'].setValue(this.nombre);
+  // }
   cancelar() {
     this.dialogRef.close();
   }

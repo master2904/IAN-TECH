@@ -8,7 +8,6 @@
                     <input matInput formControlName="codigo" type="text" placeholder="A1" name="codigo" maxlength="2">
                     <mat-error *ngIf="codigo.invalid">{{error_codigo()}}</mat-error>
                 </mat-form-field>
-<<<<<<< HEAD
                 <mat-form-field appearance="fill">
                     <mat-label>Detalle</mat-label>
                     <input matInput formControlName="detalle" type="text" placeholder="Detalle" name="detalle" maxlength="60" minlength="3">
@@ -52,9 +51,11 @@
                     <mat-icon matSuffix>image</mat-icon>
                     <mat-error *ngIf="imagen.invalid">{{error_imagen()}}</mat-error>
                 </mat-form-field>
+                <div style="text-align: center; width: 100%;">
+                    <img *ngIf="previsualizacion" height="80px" width="100px" [src]="previsualizacion" alt="">
+                 </div>          
             </form>
-=======
-                    <mat-form-field appearance="fill">
+                    <!-- <mat-form-field appearance="fill">
                         <mat-label>Detalle</mat-label>
                         <input matInput formControlName="detalle" type="text" placeholder="Sendero de la vida" name="detalle" maxlength="40" minlength="5">
                         <mat-error *ngIf="detalle.invalid">{{error_detalle()}}</mat-error>
@@ -85,19 +86,13 @@
                             <mat-option value={{item.id}} *ngFor="let item of detalles" >{{item.descripcion}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-<<<<<<< HEAD
                     <mat-form-field appearance="fill">
                         <mat-label>Imagen</mat-label>
                         <ngx-mat-file-input formControlName="imagen" placeholder="Imagen" accept="image/jpeg,image/jpg" (change)="cargarImagen($event)"></ngx-mat-file-input>
                         <mat-icon matSuffix>image</mat-icon>
                         <mat-error *ngIf="imagen.invalid">{{error_imagen()}}</mat-error>
                      </mat-form-field>
-                </form>
-=======
-            
-            </form>
->>>>>>> c02702d1b0090c749dd8720a5ed219c610187062
->>>>>>> main
+                </form>             -->
         </div>
     </div>
     <div mat-dialog-actions>

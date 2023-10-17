@@ -14,13 +14,15 @@ type AOA = any[][];
   styleUrls: ['./importar.component.scss']
 })
 export class ImportarComponent implements OnInit {
-  // XLSX = require("xlsx");
-  // @Output() datos = new EventEmitter<Object[]>();
-  data: AOA = [[1, 2], [3, 4]];
+  data: AOA = [];
+  // [[1, 2], [3, 4]];
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName: string = 'SheetJS.xlsx';
   onFileChange(evt: any) {
     /* wire up file reader */
+    this.lista=<File>evt.target.files[0];
+    const ext=this.lista.name.split('.')[1];
+    this.nombre_lista="prueba"+"."+ext;
     const target: DataTransfer = <DataTransfer>(evt.target);
     if (target.files.length !== 1) throw new Error('Cannot use multiple files');
     const reader: FileReader = new FileReader();
@@ -69,31 +71,15 @@ export class ImportarComponent implements OnInit {
   cuentas(cuenta){
     return cuenta=="_"? "":cuenta;
   }
-  constructor(private detalle:CategoriaService, private toast:ToastrService,private producto:ProductoService) {
+  constructor(private toast:ToastrService,private producto:ProductoService) {
   this.listado=this.createFormGroupFile();
   }
   ngOnInit(): void {
     this.producto.listar().subscribe((data:any)=>{
       this.productos=data
-      console.log(this.productos)
+      // console.log(this.productos)
     })    
   }  
-  id_categorias=null;
-  // categorias(id){
-  //   this.categoria.listar_id(id).subscribe((data:any)=>{
-  //     this.id_categorias=data;
-  //     // console.log(data);
-  //   });
-  // }
-  mostrar_equipos(datos){
-    // this.id=datos.id;
-    // this.f_con=datos;
-    // this.fequi=true;
-    // this.equipo.listar_concurso(datos.id).subscribe((data:any)=>{
-    //   this.equipos=data;
-    // });
-    // this.categorias(datos.id);
-  }
   lista:File=null;
   nombre_lista=null;
   cargar(event){
@@ -103,15 +89,15 @@ export class ImportarComponent implements OnInit {
     // console.log(this.nombre_lista);
   }
   enviar(){
-    // this.equipo.onUpload(this.lista,this.nombre_lista,this.id).subscribe(data=>{
-    //   this.equipos=data;
-    //   // console.log(data);
-    //   this.toast.success('Importacion exitosa');
-    // },
-    // error=>{
-    //   this.toast.error('Revise los campos del EXCEL','Error');
-    //   console.log(error.error);
-    // }); 
+    this.producto.onUploadFile(this.lista,this.nombre_lista).subscribe(data=>{
+      // this.productos=data;
+      console.log(data);
+      this.toast.success('Importacion exitosa');
+    },
+    error=>{
+      this.toast.error('Revise los campos del EXCEL','Error');
+      console.log(error.error);
+    }); 
   }
 
   f_imagen=null;

@@ -18,12 +18,13 @@ class CreateProductsTable extends Migration
             $table->string('codigo');
             $table->string('detalle');
             $table->string('marca');
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
             $table->float('precio_compra');
-            $table->float('precio_venta');
+            $table->float('precio_tienda');
+            $table->float('precio_final');
             $table->integer('cantidad');
-            $table->integer('id_detalle');
-            $table->integer('relacion');
+            $table->integer('id_detalle')->nullable();
+            $table->integer('relacion')->nullable();
             $table->timestamps();
         });
     }

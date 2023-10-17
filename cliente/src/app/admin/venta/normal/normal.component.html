@@ -1,1 +1,92 @@
-<p>normal works!</p>
+<hr>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <form [formGroup]="agregar">
+            <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Producto</mat-label>
+                  <mat-icon matSuffix (click)="limpiar()" style="cursor:pointer">clear</mat-icon>
+                  <input type="text" placeholder="Producto" aria-label="Number" matInput #cliente_id [formControl]="descripcion" [matAutocomplete]="autos" (input)="nuevo_producto($event.target.value);">
+                  <mat-autocomplete autoActiveFirstOption #autos="matAutocomplete">
+                    <mat-option *ngFor="let option of filtroProducto | async" [value]="option.descripcion" (click)="setear_producto(option)">
+                      {{option.detalle}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-error >{{error_descripcion()}}</mat-error>
+                </mat-form-field> 
+              <mat-form-field class="example-container">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="precio" type="number" placeholder="Precio"  name="precio" max="1000" min="0">
+                <mat-error >{{error_precio()}}</mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-container">
+                <mat-label>Cantidad </mat-label>
+                <input matInput formControlName="cantidad" type="number" placeholder="Cantidad" name="cantidad" min="1"  (input)="validar($event.target.value);">
+                <mat-error >{{error_cantidad()}}</mat-error>
+              </mat-form-field>
+              <!-- <button style="border: 0; text-align: center;font-size: 10px;" (click)="carrito()" *ngIf="nuevo.valid" [disabled]="!nuevo.valid"><mat-icon style="color: green">add_circle</mat-icon></button> -->
+              <button style="border: 0; text-align: center;font-size: 10px;" (click)="extras()" *ngIf="agregar.valid" [disabled]="!agregar.valid"><mat-icon style="color: green">add_circle</mat-icon></button>
+            </div>
+          </form>
+<!--   
+            <mat-form-field appearance="fill">
+                <mat-label>Productos</mat-label>
+                <mat-select>
+                    <mat-option value={{item.id}} *ngFor="let item of extra" (click)="extras(item)">{{item.detalle}}</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 col-sm-12">
+        <h5 style="text-align: center; font-size: 15px;"><strong>Productos</strong></h5>
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <th>#</th>
+                <th>Cantidad</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th colspan="2">SubTotal</th>                
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of historiales;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.cantidad}}</td>
+                    <td>{{item.detalle}}</td>
+                    <td>{{item.precio}}</td>
+                    <td>{{item.precio*item.cantidad}}</td>
+                    <td>
+                        <button style="color: red; border: none;" (click)="remove(i)">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">Total</td>
+                    <td>{{total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4 col-sm-12">
+        <div class="btn-group" role="group" aria-label="Button group">
+            <button mat-button class="btn-sm btn btn-outline-danger" (click)="cancelar()"><mat-icon>cancel</mat-icon> Cancelar</button>
+            <button mat-button class="btn-sm btn btn-outline-info" (click)="cotizacion()"><mat-icon>picture_as_pdf</mat-icon>Cotizacion</button>
+            <button mat-button class="btn-sm btn btn-outline-success" (click)="vender()" *ngIf="habilitado"><mat-icon>attach_money</mat-icon> Vender</button>
+        </div>
+        <div [formGroup]="agregar" class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Monto a pagar</mat-label>
+                <input matInput formControlName="monto" type="number" placeholder="0.00 Bs." name="monto" maxlength="15" (change)="saldar($event.target.value)">
+                <mat-error *ngIf="monto.invalid">{{error_monto()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <strong *ngIf="habilitado">Cambio: {{saldo}}</strong> 
+        <br>
+            <!-- <button mat-buton style="border: none; color: rgb(13, 167, 228);" (click)="cotizacion()"><mat-icon>picture_as_pdf</mat-icon>Cotizacion</button>
+        <button mat-button style="border: none; color: green;" (click)="vender()" *ngIf="habilitado"><mat-icon>attach_money</mat-icon> Vender</button>
+        <button mat-button style="border: none; color: red;" *ngIf="habilitado"><mat-icon>cancel</mat-icon> Cancelar</button> -->
+    
+    </div>
+</div>

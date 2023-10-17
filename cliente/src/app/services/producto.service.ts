@@ -16,6 +16,9 @@ export class ProductoService {
   pc(){
     return this.http.get(`${this.base}producto/pc/1`);
   }
+  camara(){
+    return this.http.get(`${this.base}producto/camara/1`);
+  }
   otros(){
     return this.http.get(`${this.base}producto/otros/1`);
   }
@@ -38,6 +41,13 @@ export class ProductoService {
     fd.append('image',file,nombre);
     return this.http.post(`${this.base}producto/imagen`,fd); 
   }  
+  onUploadFile(file,nombre:string):Observable<any>{
+    const fd= new FormData;
+    console.log(nombre);
+    fd.append('lista',file,nombre);
+    return this.http.post(`${this.base}producto/lista`,fd); 
+  }  
+
   cargar(nombre){
     return this.http.get(`${this.base}producto/imagen/`+nombre); 
   }}

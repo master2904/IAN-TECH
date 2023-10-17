@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
         this.imagen=environment.base+'usuario/imagen/'+user.imagen;
         // environment.imagen+'usuario/'
         localStorage.setItem('rol',this.rol);
+        localStorage.setItem('data',user.id);
         localStorage.setItem('nombre',this.nombre);
         localStorage.setItem('apellido',this.apellido);
         localStorage.setItem('imagen',this.imagen);

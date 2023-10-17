@@ -18,14 +18,14 @@ const routes: Routes = [
     },
     canActivate:[RolesGuard],
   },
-  {
-    path:'staff',
-    loadChildren:()=>import('./staff/staff.module').then(a => a.StaffModule),
-    data:{
-      role:'3'
-    },
-    canActivate:[RolesGuard]
-  },
+  // {
+  //   path:'staff',
+  //   loadChildren:()=>import('./staff/staff.module').then(a => a.StaffModule),
+  //   data:{
+  //     role:'3'
+  //   },
+  //   canActivate:[RolesGuard]
+  // },
   {
     path:'home',
     loadChildren:()=>import('./home/home.module').then(a => a.HomeModule)

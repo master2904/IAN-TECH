@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\EquiposImport;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -26,12 +27,28 @@ class ProductController extends Controller
     }
     public function pc($id)
     {
-        $i=0;
-        while($i<10){
-            $product[$i]=Product::where('id_detalle',$i)->orderBy("codigo","asc")->get();
+        $i=1;
+        $product=[];
+        while($i<=10){
+            $p=Product::where('id_detalle',$i)->orderBy("codigo","asc")->get();
+            array_push($product,$p);
             $i=$i+1;
         }
-        return $this->index();
+        $ans=Product::where('id_detalle','>',9)->orderBy("codigo","asc")->get();
+        return response()->json(array($product,$ans));
+    }
+    public function camara($id)
+    {
+        $i=10;
+        $j=0;
+        $product=[];
+        while($i<18){
+            $p=Product::where('id_detalle',$i)->orderBy("codigo","asc")->get();
+            array_push($product,$p);
+            $i=$i+1;
+        }
+        $ans=Product::where('id_detalle','>',17)->orderBy("codigo","asc")->get();
+        return response()->json(array($product,$ans));
     }
 
     public function store(Request $request)
@@ -50,11 +67,25 @@ class ProductController extends Controller
     {
         $producto=Product::find($id);
         $input=$request->all();
-        if (!$producto) 
-            return response()->json("Este Producto no existe",400);
+        $producto['codigo']=$request->get('codigo');
+        $producto['detalle']=$request->get('detalle');
+        $producto['marca']=$request->get('marca');
+        $producto['precio_compra']=$request->get('precio_compra');
+        $producto['precio_final']=$request->get('precio_final');
+        $producto['precio_tienda']=$request->get('precio_tienda');
+        $producto['cantidad']=$request->get('cantidad');
+        $producto['id_detalle']=$request->get('id_detalle');
+        $producto['relacion']=$request->get('relacion');
+        // $producto['email']=$request->get('email');
         if($input['imagen']!="")
             $producto['imagen']=$input['imagen'];
-        // $producto->update($request->all());
+        $producto->save();
+        
+    //    if (!$producto) 
+    //         return response()->json("Este Producto no existe",400);
+    //     if($input['imagen']!="")
+    //         $producto['imagen']=$input['imagen'];
+    //     // $producto->update($request->all());
         $producto->save();
         return $this->index();
     }
@@ -84,7 +115,39 @@ class ProductController extends Controller
     public function image($nombre){
         return response()->download(public_path('storage').'/producto/'.$nombre,$nombre);
     }
-
+    public function importar(Request $request){
+        // $excel=$request->file('prueba');
+        $excel=$request->file('lista');
+        // return response()->json($excel);
+        $id=$request->id;
+        $path_img='listado';
+        $excelname = $path_img.'/'.$excel->getClientOriginalName();
+        // return response()->json($excelname);
+        try {
+            Storage::disk('public')->put($excelname, File::get($excel));
+        }
+        catch (\Exception $exception) {
+            return response('error',400);
+        }
+        $import = new EquiposImport();
+        Excel::import($import,$excel);
+        return $this->index();
+        // return response()->json(Equipo::get());
+        // try{
+        //     $file=$request->file('lista');
+        //     return response()->json(Equipo::get());
+        //     // return response()->json();
+        // }
+        // catch(\Maatwebsite\Excel\Validators\ValidationException $e){
+        //     $fallas=$e->failures();
+        //     foreach($fallas as $falla){
+        //         $falla->row();
+        //         // $falla->attibute();
+        //         $falla->errors();
+        //         $falla->values();
+        //     }
+        // }
+    }
 }
 
 

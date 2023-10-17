@@ -11,6 +11,9 @@ export class VentaService {
   listar(){
     return this.http.get(`${this.base}venta`);
   }
+  r_meses(c){
+    return this.http.get(`${this.base}venta/meses/`+c);
+  }
   fecha(fecha){
     return this.http.get(`${this.base}venta/fecha/`+fecha);
   }
